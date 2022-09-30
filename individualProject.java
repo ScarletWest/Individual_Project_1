@@ -72,7 +72,7 @@ public class individualProject {
         String sourceCity = sourceCityCountry[0].trim();
         String sourceCountry = sourceCityCountry[1].trim();
         ArrayList<Integer> sourceAirportIDs = getAirportIDByCityCountry(sourceCity, sourceCountry);
-
+//
         String[] destinationCityCountry = inputData.get(1);
         String destinationCity = destinationCityCountry[0].trim();
         String destinationCountry = destinationCityCountry[1].trim();
