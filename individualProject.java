@@ -68,16 +68,16 @@ public class individualProject {
 //            System.out.println("Input[Source City = " + input[0] + ", Source country = " + input[1] + ", Destination city = " + input[2] + ", Destination country =" + input[3] + "]");
         }
 
-//        String[] sourceCityCountry = inputData.get(0);
-//        String sourceCity = sourceCityCountry[0].trim();
-//        String sourceCountry = sourceCityCountry[1].trim();
-//        ArrayList<Integer> sourceAirportIDs = getAirportIDByCityCountry(sourceCity, sourceCountry);
+        String[] sourceCityCountry = inputData.get(0);
+        String sourceCity = sourceCityCountry[0].trim();
+        String sourceCountry = sourceCityCountry[1].trim();
+        ArrayList<Integer> sourceAirportIDs = getAirportIDByCityCountry(sourceCity, sourceCountry);
+
+        String[] destinationCityCountry = inputData.get(1);
+        String destinationCity = destinationCityCountry[0].trim();
+        String destinationCountry = destinationCityCountry[1].trim();
+        ArrayList<Integer> destinationAirportIDs = getAirportIDByCityCountry(destinationCity, destinationCountry);
 //
-//        String[] destinationCityCountry = inputData.get(1);
-//        String destinationCity = destinationCityCountry[0].trim();
-//        String destinationCountry = destinationCityCountry[1].trim();
-//        ArrayList<Integer> destinationAirportIDs = getAirportIDByCityCountry(destinationCity, destinationCountry);
-////
 //        if ((input[0] == airports[2]) && (input[1] == airports[3])) {
 //            System.out.println(airports[2] + "," + airports[3]);
 //
