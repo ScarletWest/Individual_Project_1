@@ -1,3 +1,7 @@
+/** @author: Nana Yaa Owusu
+ * @date: October 1, 2022
+ * @assignment: Individual Project 1
+ */
 // importing standard java packages
 import java.io.*;
 import java.util.*;
