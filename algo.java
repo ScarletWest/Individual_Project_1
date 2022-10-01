@@ -13,6 +13,7 @@ public class algo { //class for search algorithm
         PriorityQueue<Node> openList = new PriorityQueue<>();
         HashSet<String> closedList = new HashSet<>();
 
+        // using nodes to search through Airport IDs until desired outputs are produced
         System.out.println("About to do the search on the problem: ");
         Node initialNode = new Node(sourceAirportID);
         openList.add(initialNode);
@@ -56,6 +57,7 @@ public class algo { //class for search algorithm
                 }
             }
         }
+        // If desired outputs are non-existent, this message is printed
         System.out.println("After the rather frustrating search, I couldn't find any valid route.");
         return null;
     }
@@ -115,15 +117,6 @@ class Node implements Comparable<Node> {
 
     @Override
     public int compareTo(Node o) {
-//        if (this.getPathCost() > o.getPathCost()) {
-//            return 1;
-//        }
-//        else if (this.getPathCost() < o.getPathCost()) {
-//            return -1;
-//        }
-//        else {
-//            return 0;
-//        }
         return Double.compare(this.getPathCost(), o.getPathCost());
     }
 
