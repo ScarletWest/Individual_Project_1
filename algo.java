@@ -75,7 +75,6 @@ class Node implements Comparable<Node> {
     }
 
     /**
-     *
      * @param state the airport Id
      * @param parent the entire node of the calling object
      * @param pathCost number of flights taken to get this state
