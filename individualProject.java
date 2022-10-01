@@ -22,7 +22,6 @@ public class individualProject {
         }
         return AirportID;
     }
-
 //        main function to read input, route, airline and airport files
         public static void main (String[] args) throws IOException {
         String line = "";
