@@ -1,0 +1,7 @@
+1. AA from ACC to LHR 0 stops.
+2. AC from LHR to YEG 0 stops.
+3. AC from YEG to YWG 0 stops.
+
+Total flights: 3
+Total stops: 0
+Optimality criteria: flights
