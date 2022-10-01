@@ -1,9 +1,13 @@
+/** @author: Nana Yaa Owusu
+ * @date: October 1, 2022
+ * @assignment: Individual Project 1
+ */
 // importing standard java packages
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 
-public class algo {
+public class algo { //class for search algorithm
 
     public static Path UniformCostSearch(String sourceAirportID, String destinationAirportID, ArrayList<String[]> map) {
         PriorityQueue<Node> openList = new PriorityQueue<>();
@@ -138,6 +142,7 @@ class Node implements Comparable<Node> {
     }
 }
 
+//class to implement Comparable Path and return action sequence and path cost
 class Path implements Comparable<Path> {
     ArrayList<String> actionSequence;
     int pathCost;
