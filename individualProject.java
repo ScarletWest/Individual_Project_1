@@ -1,11 +1,17 @@
+// importing standard java packages
 import java.io.*;
 import java.util.*;
 
 public class individualProject {
+//     Array lists to store route and input file data
     public static ArrayList<String[]>  routesData = new ArrayList<>();
     public static ArrayList<String[]>  inputData = new ArrayList<>();
+
+//    Hashmaps to store airport and airline file data
     public static HashMap<String, String[]> airportData = new HashMap<>();
     public static HashMap<String, String[]> airlineData = new HashMap<>();
+
+//    function to obtain Airport ID from city and country name
     public static List<String> getAirportIDByCityCountry (String city, String country){
         List<String> AirportID = new ArrayList<String>();
         for (String[] array: airportData.values()) {
@@ -17,7 +23,7 @@ public class individualProject {
         return AirportID;
     }
 
-
+//        main function to read input, route, airline and airport files
         public static void main (String[] args) throws IOException {
         String line = "";
         String splitBy = ",";
@@ -26,6 +32,7 @@ public class individualProject {
         BufferedReader airline = null;
         BufferedReader route = null;
 
+//        function to read files and catch IO exceptions
         try {
             route = new BufferedReader(new FileReader("/Users/user/Downloads/ICP_Individual_Project/routes.csv"));
             airline = new BufferedReader(new FileReader("/Users/user/Downloads/ICP_Individual_Project/airlines.csv"));
@@ -39,7 +46,7 @@ public class individualProject {
             System.exit(1);
         }
 
-
+//        needed to read route file
         String[] routes = new String[0];
         while ((line = route.readLine()) != null) {
             routes = line.split(splitBy);
@@ -47,6 +54,7 @@ public class individualProject {
         }
         route.close();
 
+//        needed to read airline file
         String[] airlines = new String[0];
         while ((line = airline.readLine()) != null) {
             airlines = line.split(splitBy);
@@ -54,6 +62,7 @@ public class individualProject {
         }
         airline.close();
 
+//        needed to read airport file
         String[] airports = new String[0];
         while ((line = airport.readLine()) != null) {
             airports = line.split(splitBy);
@@ -61,6 +70,7 @@ public class individualProject {
         }
         airport.close();
 
+//        needed to read input file
         String[] input = new String[0];
         while ((line = input_file.readLine()) != null) {
             input = line.split(splitBy);
@@ -68,21 +78,25 @@ public class individualProject {
         }
         input_file.close();
 
-
+//        needed to obtain source airport id
         String[] sourceCityCountry = inputData.get(0);
         String sourceCity = sourceCityCountry[0].trim();
         String sourceCountry = sourceCityCountry[1].trim();
         List<String> sourceAirportIDs = getAirportIDByCityCountry(sourceCity,sourceCountry);
         System.out.println(sourceAirportIDs);
 
-
+//        needed to obtain destination airport id
         String[] destinationCityCountry = inputData.get(1);
         String destinationCity = destinationCityCountry[0].trim();
         String destinationCountry = destinationCityCountry[1].trim();
         List<String> destinationAirportIDs = getAirportIDByCityCountry(destinationCity,destinationCountry);
         System.out.println(destinationAirportIDs);
 
-
+        /*
+        uses search algorithm from algo.java file to match determine airports in
+        destination and source cities and countries and determine total flights,
+        stops and optimality criteria
+        */
         ArrayList<Path> results = new ArrayList<>();
          for (String sourceAirportID: sourceAirportIDs) {
              for (String destinationAirportID: destinationAirportIDs) {
@@ -125,6 +139,8 @@ public class individualProject {
                  }
              }
          }
+
+//         display total flights, total stops and optimality criteria
          data.append("\nTotal flights: ").append(optimalPath.getPathCost());
          data.append("\nTotal stops: ").append(stops);
          data.append("\nOptimality criteria: flights");
@@ -134,9 +150,10 @@ public class individualProject {
              String Data = data.toString();
              String[] output = Data.split("\n");
              for (String info : output) {
-                 output_file.write(info);
+                 output_file.write(info); //outputs information in output file
                  output_file.newLine();
              }
+             // indicated the creation of output file and closes it
              System.out.println("\nFile output successfully created.");
              output_file.close();
          }
